@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: event-bus
+spec:
+  containers:
+    - name: mon-conteneur-event-bus
+      image: event-bus:event-bus
+      ports:
+        - containerPort: 4005
+

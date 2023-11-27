@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: posts
+  labels:
+    app: post
+spec:
+  containers:
+    - name: mon-conteneur
+      image: post:post
+      ports:
+        - containerPort: 4000
+

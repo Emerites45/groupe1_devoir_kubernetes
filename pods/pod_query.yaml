@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: query
+spec:
+  containers:
+    - name: mon-conteneur-query
+      image: query:query
+      ports:
+        - containerPort: 4002
+

@@ -1,0 +1,65 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: post
+  ports:
+  - name: "4000"
+    port: 4000
+    targetPort: 4000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancercomments
+spec:
+  type: LoadBalancer
+  selector:
+    app: comments
+  ports:
+  - name: "4001"
+    port: 4001
+    targetPort: 4001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancereventbus
+spec:
+  type: LoadBalancer
+  selector:
+    app: event-bus
+  ports:
+  - name: "4005"
+    port: 4005
+    targetPort: 4005
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancermoderation
+spec:
+  type: LoadBalancer
+  selector:
+    app: moderation
+  ports:
+  - name: "4003"
+    port: 4003
+    targetPort: 4003
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancerquery
+spec:
+  type: LoadBalancer
+  selector:
+    app: query
+  ports:
+  - name: "4002"
+    port: 4002
+    targetPort: 4002

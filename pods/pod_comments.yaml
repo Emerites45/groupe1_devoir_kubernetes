@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: comments
+spec:
+  containers:
+    - name: mon-conteneur-comments
+      image: comments:comments 
+      ports:
+        - containerPort: 4001
+

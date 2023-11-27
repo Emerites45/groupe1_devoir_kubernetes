@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mon-deployment-posts
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mon-miniblog
+  template:
+    metadata:
+      labels:
+        app: mon-miniblog
+    spec:
+      containers:
+        - name: posts
+          image: post
+          
+          ports:
+          - containerPort: 4000
+       
+

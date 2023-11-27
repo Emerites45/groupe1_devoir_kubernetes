@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: moderation
+spec:
+  containers:
+    - name: mon-conteneur-moderation
+      image: moderation:moderation
+      ports:
+        - containerPort: 4003
+

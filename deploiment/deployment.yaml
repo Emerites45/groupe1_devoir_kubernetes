@@ -1,0 +1,131 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mon-deployment-comments
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mon-miniblog
+  template:
+    metadata:
+      name: comments
+      labels:
+        app: mon-miniblog
+    spec:
+      containers:
+        - name: mon-conteneur-comments
+          image: comments:comments
+          
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mon-deployment-event-bus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mon-miniblog
+  template:
+    metadata:
+      name: event-bus
+      labels:
+        app: mon-miniblog
+    spec:
+      containers:
+        - name: mon-conteneur-event-bus
+          image: event-bus:event-bus
+       
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mon-deployment-moderation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mon-miniblog
+  template:
+    metadata:
+      name: moderation
+      labels:
+        app: mon-miniblog
+    spec:
+      containers:
+        - name: mon-conteneur-moderation
+          image: moderation:moderation
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mon-deployment-posts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mon-posts
+  template:
+    metadata:
+      name: post
+      labels:
+        app: mon-posts
+    spec:
+      containers:
+        - name: mon-conteneur-post
+          image: post:post
+       
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mon-deployment-query
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mon-miniblog
+  template:
+    metadata:
+      name: query 
+      labels:
+        app: mon-miniblog
+    spec:
+      containers:
+        - name: mon-conteneur-query
+          image: query:query
+       
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+  labels:
+    app: client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      name: client-pod
+      labels:
+        app: client
+    spec:
+      containers:
+        - name: mon-conteneur-client
+          image: client:client
+          ports:
+            - containerPort : 3000
+      restartPolicy: Always
+
+       
+   
+          
+       
+
+       
+
